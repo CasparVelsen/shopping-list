@@ -55,14 +55,13 @@ const listItems = [
   },
 ];
 
-export default function () {
+export default function List() {
   return (
     <>
       <ul className="shopping__list">
-        {listItems.map(() => (
-          <li key={listItems._id}>{listItems.name.en}</li>
+        {listItems.map((item) => (
+          <li key={item._id}>{item.name.en}</li>
         ))}
-        ;
       </ul>
     </>
   );

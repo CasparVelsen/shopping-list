@@ -1,4 +1,4 @@
-export default function () {
+export default function Add() {
   return (
     <>
       <input placeholder="Add an item" />

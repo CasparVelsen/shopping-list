@@ -1,3 +1,5 @@
+import "./list.css";
+
 const listItems = [
   {
     _id: "c2hvcHBpbmcuaXRlbTox",
@@ -60,7 +62,9 @@ export default function List() {
     <>
       <ul className="shopping__list">
         {listItems.map((item) => (
-          <li key={item._id}>{item.name.en}</li>
+          <li key={item._id} className="shopping__items">
+            {item.name.en}
+          </li>
         ))}
       </ul>
     </>

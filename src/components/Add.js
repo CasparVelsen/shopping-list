@@ -1,22 +1,31 @@
 import { useState } from "react";
 
 export default function Add({ onAddItem }) {
-  const { text, setText } = useState("");
+  const { name, setName } = useState("");
+
+  function handleChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleAdd(event) {
+    event.preventDefault();
+    onAddItem(name);
+    setName("");
+  }
+
   return (
     <>
-      <input
-        placeholder="Add an item"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          setText("");
-          onAddItem(text);
-        }}
-      >
-        Add
-      </button>
+      <form onSubmit={handleAdd}>
+        <label htmlFor="add-item">What do you want to buy?:</label>
+        <input
+          id="add-item"
+          type="text"
+          placeholder="Add Item..."
+          value={name}
+          onChange={handleChange}
+        />
+        <button type="button">Add</button>
+      </form>
     </>
   );
 }
